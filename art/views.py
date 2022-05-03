@@ -82,25 +82,25 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
-def send_message(request):
-    send_mail('django test mail', 'this is django test body',
-              '200103126@stu.sdu.edu.kz',
-              ['200103126@stu.sdu.edu.kz','n060103@mail.ru'],
-              fail_silently=False, html_message="<b>Bold text</b><i> Italic text</i>")
-    return render(request, 'art/successfull.html')
+#def send_message(request):
+#     send_mail('django test mail', 'this is django test body',
+#               '200103126@stu.sdu.edu.kz',
+#               ['200103126@stu.sdu.edu.kz','n060103@mail.ru'],
+#               fail_silently=False, html_message="<b>Bold text</b><i> Italic text</i>")
+#     return render(request, 'art/successfull.html')
 
-def send_message(request):
-    email = EmailMessage(
-        'Hello',
-        'Body goes here',
-        '200103126@stu.sdu.edu.kz',
-        ['200103126@stu.sdu.edu.kz', 'n060103@mail.ru'],
-        headers={'Message-ID': 'foo'},
+# def send_message(request):
+#     email = EmailMessage(
+#         'Hello',
+#         'Body goes here',
+#         '200103126@stu.sdu.edu.kz',
+#         ['200103126@stu.sdu.edu.kz', 'n060103@mail.ru'],
+#         headers={'Message-ID': 'foo'},
 
-    )
-    email.attach_file('/Users/Привет/Pictures/Screenshots/2.png')
-    email.send(fail_silently=False)
-    return render(request, 'art/successfull.html')
+#     )
+#     email.attach_file('/Users/Привет/Pictures/Screenshots/2.png')
+#     email.send(fail_silently=False)
+#     return render(request, 'art/successfull.html')
 
 class EmailAttachementView(View):
     form_class = EmailForm
